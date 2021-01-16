@@ -2,7 +2,7 @@
 
 在 Vuepress 主题的基础上添加了一些组件，修改了一些样式，更像 Vue 3.0 的文档。
 
-案例链接：[国内](https://uphg.gitee.io/vue-docs-universal/) | [GitHub](https://uphg.github.io/vue-docs-universal/)
+案例链接：[国内](https://uphg.gitee.io/vuepress-universal/) | [GitHub](https://uphg.github.io/vuepress-universal/)
 
 ## 使用
 
