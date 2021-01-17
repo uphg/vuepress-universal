@@ -1,10 +1,11 @@
 ---
 title: "Markdown 语法"
+hideIndex: true
 categories:
-    - 前端
+  - 前端
 tags:
-    - JavaScript
-    - Vue
+  - JavaScript
+  - Vue
 ---
 
 ## 我是h2标题

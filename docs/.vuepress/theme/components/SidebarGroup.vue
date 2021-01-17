@@ -31,7 +31,7 @@
         :class="{down: open}"
         aria-hidden="true"
       >
-        <use xlink:href="#icon-arrow-right"></use>
+        <use xlink:href="#icon-right"></use>
       </svg>
     </RouterLink>
 
@@ -53,7 +53,7 @@
         :class="{down: open}"
         aria-hidden="true"
       >
-        <use xlink:href="#icon-arrow-right"></use>
+        <use xlink:href="#icon-right"></use>
       </svg>
     </p>
 
@@ -97,6 +97,7 @@ export default {
 </script>
 
 <style lang="stylus">
+$arrowSize = 18px;
 .sidebar-group
   .sidebar-group
     padding-left 0.5em
@@ -146,8 +147,8 @@ export default {
     // left 0.5em
     fill #b2bac2
     transition transform 0.1s ease-out;
-    width 12px
-    height 12px
+    width $arrowSize
+    height $arrowSize
     &.down
       border none
       transform rotate(90deg)
