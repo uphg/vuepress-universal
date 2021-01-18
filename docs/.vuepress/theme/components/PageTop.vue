@@ -73,10 +73,11 @@ $pageArrowSize = 12px;
 .re-page-index {
   margin-top: 2rem;
   // border 1px solid #cfd4db
-  border: 1px solid #e7e6e6;
+  // border: 1px solid #e7e6e6;
   position: relative;
   z-index: 1;
-  background-color: #fafafa;
+  // background-color: #fafafa;
+  background-color #f8f8f8
   &.hide-index {
     display: none;
   }
@@ -133,6 +134,7 @@ $pageArrowSize = 12px;
   align-items: center;
 
   svg {
+    margin-top: 1px;
     width: $pageArrowSize;
     height: $pageArrowSize;
     fill: currentColor;

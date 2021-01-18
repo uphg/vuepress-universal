@@ -1,7 +1,7 @@
 var nav = require("./nav")
 var sidebar = require("./sidebar")
 module.exports = {
-  base: '/vue-docs-universal/',
+  base: '/vuepress-universal/',
   title: 'Vuepress',
   description: '',
   head: [
@@ -15,11 +15,11 @@ module.exports = {
     smoothScroll: true, // 开启平滑滚动
     nav: nav,
     lastUpdated: '上次更新', // string | boolean
-    sidebarDepth: 2,
+    sidebarDepth: 0,
     sidebar: sidebar,
   },
   plugins: [
-    ['vuepress-plugin-table-of-contents'],
+    // ['vuepress-plugin-table-of-contents'],
     ['@vuepress/back-to-top'],
     [
       'vuepress-plugin-zooming',
@@ -56,7 +56,7 @@ module.exports = {
     }],
   ],
   markdown: {
-    lineNumbers: true,
+    // lineNumbers: true, // 开启代码块行数显示
     /** @param {import('markdown-it')} md */
     extendMarkdown: md => {
       md.options.highlight = require('./markdown/highlight')(

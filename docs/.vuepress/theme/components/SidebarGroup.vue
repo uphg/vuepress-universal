@@ -131,7 +131,8 @@ $arrowSize = 18px;
   font-size 1.1em
   font-weight bold
   // text-transform uppercase
-  padding 0.35rem 1.25rem 0.35rem 1.25rem
+  // padding 0.35rem 1.25rem 0.35rem 1.25rem
+  padding 0.35rem 0.5rem 0.35rem 1.25rem
   width 100%
   box-sizing border-box
   margin 0
@@ -139,8 +140,12 @@ $arrowSize = 18px;
   display flex
   justify-content space-between
   align-items center
+  transition background-color 0.2s, color 0.2s
+  border-radius 4px
   &.open, &:hover
     color inherit
+  &:hover
+    background-color #f3f4f5
   .arrow
     // position relative
     // top -0.12em
@@ -164,4 +169,9 @@ $arrowSize = 18px;
   transition height .1s ease-out
   font-size 0.95em
   overflow hidden
+  
+.sidebar-links.sidebar-group-items
+  padding-left 1.25rem
+  padding-top 0.2rem
+  padding-bottom 0.2rem
 </style>

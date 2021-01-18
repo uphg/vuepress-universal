@@ -38,7 +38,8 @@
 
 <script>
 import AlgoliaSearchBox from '@AlgoliaSearchBox'
-import SearchBox from '@SearchBox'
+// import SearchBox from '@SearchBox'
+import SearchBox from '@theme/plugin/search/SearchBox.vue'
 import SidebarButton from '@theme/components/SidebarButton.vue'
 import NavLinks from '@theme/components/NavLinks.vue'
 
@@ -99,6 +100,7 @@ $navbar-horizontal-padding = 1.5rem
 .navbar
   padding $navbar-vertical-padding $navbar-horizontal-padding
   line-height $navbarHeight - 1.4rem
+  box-shadow: 0 2px 5px rgba(0,0,0,.08);
   a, span, img
     display inline-block
   .logo

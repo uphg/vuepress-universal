@@ -6,19 +6,14 @@
     @touchend="onTouchEnd"
   >
     <Navbar
+      :class="[navClass]"
       v-if="shouldShowNavbar"
       @toggle-sidebar="toggleSidebar"
     />
 
-    <div
-      class="sidebar-mask"
-      @click="toggleSidebar(false)"
-    />
+    <div class="sidebar-mask" @click="toggleSidebar(false)" />
 
-    <Sidebar
-      :items="sidebarItems"
-      @toggle-sidebar="toggleSidebar"
-    >
+    <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
       <template #top>
         <slot name="sidebar-top" />
       </template>
@@ -29,10 +24,7 @@
 
     <Home v-if="$page.frontmatter.home" />
 
-    <Page
-      v-else
-      :sidebar-items="sidebarItems"
-    >
+    <Page v-else :sidebar-items="sidebarItems">
       <template #top>
         <slot name="page-top" />
       </template>
@@ -40,6 +32,7 @@
         <slot name="page-bottom" />
       </template>
     </Page>
+    <!-- <Synopsis /> -->
   </div>
 </template>
 
@@ -47,6 +40,7 @@
 import Home from '@theme/components/Home.vue'
 import Navbar from '@theme/components/Navbar.vue'
 import Page from '@theme/components/Page.vue'
+// import Synopsis from '@theme/components/Synopsis.vue'
 import Sidebar from '@theme/components/Sidebar.vue'
 import { resolveSidebarItems } from '../util'
 
@@ -57,17 +51,23 @@ export default {
     Home,
     Page,
     Sidebar,
-    Navbar
+    Navbar,
+    // Synopsis
   },
 
-  data () {
+  data() {
     return {
-      isSidebarOpen: false
+      isSidebarOpen: false,
+      navClass: '', // 导航栏滚动附加class
+      scroll: {     // 存储window滚动变量
+        before: 0,
+        current: 0,
+      }
     }
   },
 
   computed: {
-    shouldShowNavbar () {
+    shouldShowNavbar() {
       const { themeConfig } = this.$site
       const { frontmatter } = this.$page
       if (
@@ -84,7 +84,7 @@ export default {
       )
     },
 
-    shouldShowSidebar () {
+    shouldShowSidebar() {
       const { frontmatter } = this.$page
       return (
         !frontmatter.home
@@ -93,7 +93,7 @@ export default {
       )
     },
 
-    sidebarItems () {
+    sidebarItems() {
       return resolveSidebarItems(
         this.$page,
         this.$page.regularPath,
@@ -102,7 +102,7 @@ export default {
       )
     },
 
-    pageClasses () {
+    pageClasses() {
       const userPageClass = this.$page.frontmatter.pageClass
       return [
         {
@@ -115,29 +115,29 @@ export default {
     }
   },
 
-  mounted () {
+  mounted() {
     this.$router.afterEach(() => {
       this.isSidebarOpen = false
     })
-
+    this.initNav()
     this.scrollTo(location.hash)
   },
 
   methods: {
-    toggleSidebar (to) {
+    toggleSidebar(to) {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
       this.$emit('toggle-sidebar', this.isSidebarOpen)
     },
 
     // side swipe
-    onTouchStart (e) {
+    onTouchStart(e) {
       this.touchStart = {
         x: e.changedTouches[0].clientX,
         y: e.changedTouches[0].clientY
       }
     },
 
-    onTouchEnd (e) {
+    onTouchEnd(e) {
       const dx = e.changedTouches[0].clientX - this.touchStart.x
       const dy = e.changedTouches[0].clientY - this.touchStart.y
       if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
@@ -149,14 +149,61 @@ export default {
       }
     },
 
-    /* 修复页面不会自动跳转锚点的 bug */
+    // 修复页面不会自动跳转锚点的 bug
     scrollTo(selector) {
       if (!selector || selector === '#') return
       const el = document.querySelector(decodeURIComponent(selector))
       if (el && el.offsetTop) {
         window.scrollTo(0, el.offsetTop)
       }
-    }
+    },
+
+    // 监听 window 窗口滚动事件
+    initNav() {
+      window.addEventListener('scroll', this.windowScroll)
+    },
+
+    // 窗口滚动时执行函数
+    windowScroll() {
+      let searchInput = document.querySelector(".search-box input[aria-label='Search']")
+      // 判断input搜索框是否获得焦点，获得焦点不滚动
+      if (document.activeElement !== searchInput) {
+        this.scrollDirection()
+      }
+    },
+
+    // 判断滚动方向
+    scrollDirection() {
+      // let {before, current} = this.scroll
+      this.scroll.current = document.documentElement.scrollTop || document.body.srcollTop;
+      if (this.scroll.before < this.scroll.current) {
+        this.addDownNavClass()
+      } else {
+        this.addUpNavClass()
+      }
+      this.scroll.before = this.scroll.current
+    },
+    // 向上滚动
+    addUpNavClass() {
+      this.navClass = 'nav-up'
+    },
+    // 向下滚动
+    addDownNavClass() {
+      this.navClass = 'nav-down'
+    },
   }
 }
 </script>
+<style lang="stylus">
+// 导航栏向下滚动
+.nav-down {
+  transition: top 0.3s;
+  top: -3.6rem;
+}
+
+// 导航栏向上滚动
+.nav-up {
+  transition: top 0.3s;
+  top: 0;
+}
+</style>

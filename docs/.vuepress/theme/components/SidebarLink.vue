@@ -111,23 +111,32 @@ a.sidebar-link
   font-weight 400
   display inline-block
   color $textColor
-  border-left 0.25rem solid transparent
-  padding 0.35rem 1rem 0.35rem 1.25rem
+  // border-left 0.25rem solid transparent
+  // padding 0.35rem 1rem 0.35rem 1.25rem
+  padding 0.46rem 1rem 0.46rem 1.25rem
   line-height 1.4
   width: 100%
   box-sizing: border-box
+  border-radius 4px
+  margin-bottom: .25rem;
+  margin-top: .25rem;
   &:hover
     color $accentColor
   &.active
-    font-weight 600
+    // font-weight 600
     color $accentColor
-    border-left-color $accentColor
+    // border-left-color $accentColor
   .sidebar-group &
-    padding-left 2rem
+    // padding-left 2rem
   .sidebar-sub-headers &
     padding-top 0.25rem
     padding-bottom 0.25rem
     border-left none
     &.active
       font-weight 500
+.sidebar-group-items > li > a
+  line-height: 1.7;
+  transition background-color 0.2s, color 0.2s
+  &.active
+    background-color #f3f4f5
 </style>

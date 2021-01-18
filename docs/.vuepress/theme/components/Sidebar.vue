@@ -55,18 +55,34 @@ export default {
   }
 }
 
+// .el-scrollbar__view > .sidebar-links
+//   padding .5rem
+//   & > li > a
+//     transition background-color 0.2s, color 0.2s
+//     &.active, &:hover
+//       background-color #f3f4f5
+
 .el-scrollbar__view {
+  padding-top: 3.6rem;
   & > .sidebar-links {
-    padding: 1.5rem 0;
+    // padding: 1.5rem 0;
+    padding: 0.65rem .5rem .5rem
+    & > li > a {
+      transition background-color 0.2s, color 0.2s
+      &.active, &:hover {
+        background-color #f3f4f5
+      }
+    }
 
     & > li > a.sidebar-link {
-      font-size: 1.1em;
+      // font-size: 1.1em;
       line-height: 1.7;
       font-weight: bold;
     }
 
     & > li:not(:first-child) {
-      margin-top: 0.75rem;
+      // margin-top: 0.75rem;
+      margin-top: 0.25rem;
     }
   }
 }
@@ -82,7 +98,8 @@ export default {
   }
   .el-scrollbar__view {
     & > .sidebar-links {
-      padding: 1rem 0;
+      // padding: 1rem 0;
+      padding: 0.5rem;
     }
   }
 }
