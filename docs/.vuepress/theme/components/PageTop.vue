@@ -44,8 +44,6 @@ export default {
     }
   },
   mounted() {
-    console.log('# this')
-    console.log(this)
     this.autoTouch();
   },
   methods: {
@@ -107,12 +105,12 @@ $pageArrowSize = 12px;
   color: #6a737d;
   padding: 0 1.6em calc(1.6em - 3px);
 
-  ul {
+  .synopsis-ul {
     margin: 0;
     line-height: 2;
   }
 
-  a {
+  .synopsis-link {
     color: $defaultLinkColor;
     transition: color 0.2s;
     border-bottom: 1px solid transparent;

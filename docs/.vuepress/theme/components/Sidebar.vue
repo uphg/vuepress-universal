@@ -66,7 +66,7 @@ export default {
   padding-top: 3.6rem;
   & > .sidebar-links {
     // padding: 1.5rem 0;
-    padding: 0.65rem .5rem .5rem
+    padding: 0.65rem .8rem .5rem .8rem
     & > li > a {
       transition background-color 0.2s, color 0.2s
       &.active, &:hover {
