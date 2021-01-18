@@ -11,7 +11,7 @@
             :class="{ show: showIndex }"
             aria-hidden="true"
           >
-            <use xlink:href="#icon-right"></use>
+            <use xlink:href="#icon-bold-right"></use>
           </svg>
           <span class="text">{{ indexText }}</span>
         </span>

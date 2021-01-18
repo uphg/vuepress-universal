@@ -31,7 +31,7 @@
         :class="{down: open}"
         aria-hidden="true"
       >
-        <use xlink:href="#icon-right"></use>
+        <use xlink:href="#icon-bold-right"></use>
       </svg>
     </RouterLink>
 
@@ -53,7 +53,7 @@
         :class="{down: open}"
         aria-hidden="true"
       >
-        <use xlink:href="#icon-right"></use>
+        <use xlink:href="#icon-bold-right"></use>
       </svg>
     </p>
 
@@ -174,4 +174,5 @@ $arrowSize = 18px;
   padding-left 1.25rem
   padding-top 0.2rem
   padding-bottom 0.2rem
+  font-weight: bold;
 </style>
