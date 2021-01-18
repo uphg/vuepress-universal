@@ -1,6 +1,6 @@
 ---
-title: '第一篇'
+title: '学习 JavaScript 数据结构与算法'
 ---
 
 
-这是第一篇文章
+这是学习 JavaScript 数据结构与算法

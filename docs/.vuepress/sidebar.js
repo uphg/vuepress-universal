@@ -5,6 +5,11 @@ module.exports = {
       title: 'Bar',
       children: [
         'markdown',
+        'demo1.md',
+        'demo2.md',
+        'demo3.md',
+        'demo4.md',
+        'demo5.md',
         'one',
         'two'
       ]

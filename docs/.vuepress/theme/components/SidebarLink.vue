@@ -134,6 +134,7 @@ a.sidebar-link
     border-left none
     &.active
       font-weight 500
+
 .sidebar-group-items > li > a
   line-height: 1.7;
   transition background-color 0.2s, color 0.2s
