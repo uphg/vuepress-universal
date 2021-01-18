@@ -14,6 +14,7 @@ module.exports = {
     ['', '介绍'],
     {
       title: 'Bar',
+      collapsable: false,
       children: [
         'one',
         'two'
@@ -24,6 +25,7 @@ module.exports = {
     ['', '介绍'],
     {
       title: 'Bar',
+      collapsable: false,
       children: [
         'one',
         'two'
