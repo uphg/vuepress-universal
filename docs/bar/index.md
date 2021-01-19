@@ -11,6 +11,26 @@ tags:
 
 详情参考：[Markdown 拓展](https://vuepress.vuejs.org/zh/guide/markdown.html)
 
+## 内部元素样式
+
+### button 按钮
+
+<p>
+  <button>俺是按钮</button>
+</p>
+
+### input 输入框
+
+<p>
+  <input type="text" placeholder="俺是输入框" />
+</p>
+
+### 换行
+
+<p>
+  <hr />
+</p>
+
 ## 自定义容器 <Badge text="默认主题"/>
 
 **输入**
