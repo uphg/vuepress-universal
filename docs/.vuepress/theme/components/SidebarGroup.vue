@@ -144,8 +144,6 @@ $arrowSize = 18px;
   border-radius 4px
   &.open, &:hover
     color inherit
-  &:hover
-    background-color #f3f4f5
   .arrow
     // position relative
     // top -0.12em
@@ -164,6 +162,10 @@ $arrowSize = 18px;
       border-left-color $accentColor
     &:hover
       color $accentColor
+
+.collapsable .sidebar-heading
+  &:hover
+    background-color #f3f4f5
 
 .sidebar-group-items
   transition height .1s ease-out
